@@ -15,7 +15,7 @@ public:
     
     int index;
     bool isGateway = false;
-    vector<int> neighbour;
+    list<int> neighbour;
 };
 vector<Node> nodes;
 
@@ -112,7 +112,14 @@ int main()
             cerr<<n<<" ";
         cerr<<endl;
         
-        cout<<path[0]<<" "<<path[1]<<endl;
+        
+        int from = path[0];
+        int to = path[1];
+        
+        nodes[from].neighbour.remove(to);
+        nodes[to].neighbour.remove(from);
+        
+        cout<<from<<" "<<to<<endl;
         
 
     }
